@@ -6,6 +6,9 @@ import {
   getVideoById,
   getVideoByChannel,
   createUser,
+  updateUser,
+  getUsers,
+  deleteUser,
 } from "../routes/AllRoutes.js";
 
 const routeConstant = {
@@ -16,6 +19,9 @@ const routeConstant = {
   getVideoById,
   getVideoByChannel,
   createUser,
+  updateUser,
+  getUsers,
+  deleteUser,
 };
 
 export default routeConstant;

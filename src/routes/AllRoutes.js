@@ -108,3 +108,43 @@ export const createUser = async (req, res) => {
     res.status(422).json({ error: "Some Error " + error });
   }
 };
+export const updateUser = async (req, res) => {
+  try {
+    const user = await User.update(req.body, {
+      where: { id: req.params.id },
+    });
+    if (user) {
+      res.status(201).json({ message: "Data Updated" });
+    } else {
+      res.status(406).json({ warning: "Data not Updated" });
+    }
+  } catch (error) {
+    res.status(422).json({ error: "Some Error " + error });
+  }
+};
+export const getUsers = async (req, res) => {
+  try {
+    const user = await User.findAll();
+    if (user) {
+      res.status(201).send(user);
+    } else {
+      res.status(406).json({ warning: "Data not Updated" });
+    }
+  } catch (error) {
+    res.status(422).json({ error: "Some Error " + error });
+  }
+};
+export const deleteUser = async (req, res) => {
+  try {
+    const user = await User.destroy({
+      where: { id: req.params.id },
+    });
+    if (user) {
+      res.status(201).json({ message: "User Removed" });
+    } else {
+      res.status(406).json({ warning: "User not Added" });
+    }
+  } catch (error) {
+    res.status(422).json({ error: "Some Error " + error });
+  }
+};

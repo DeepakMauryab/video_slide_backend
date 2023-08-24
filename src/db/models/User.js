@@ -11,6 +11,10 @@ const User = sql.define(
     channel: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    channelHandle: {
+      type: DataTypes.STRING,
+      allowNull: false,
       unique: true,
     },
     about: {
@@ -24,6 +28,15 @@ const User = sql.define(
     banner: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    gender: {
+      type: DataTypes.ENUM,
+      values: ["M", "F", "O"],
+      allowNull: null,
+    },
+    dob: {
+      type: DataTypes.DATE,
+      allowNull: null,
     },
   },
   { timestamps: true, deletedAt: "destroyTime" }
