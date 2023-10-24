@@ -3,14 +3,15 @@ import Video from "../db/models/VideoModel.js";
 
 export const uploadVideo = async (req, res) => {
   try {
+    console.log(req.file);
     const video = await Video.create({ ...req.body, video: req.file.filename });
     if (video) {
-      res.status(201).json({ message: "Data Added" });
+      res.status(201).json({ message: "Data Added", success: true });
     } else {
-      res.status(406).json({ warning: "Data not Added" });
+      res.status(406).json({ warning: "Data not Added", success: false });
     }
   } catch (error) {
-    res.status(422).json({ error: "Some Error " + error });
+    res.status(422).json({ error: "Some Error " + error, success: false });
   }
 };
 export const deleteVideo = async (req, res) => {

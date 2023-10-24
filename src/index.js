@@ -1,11 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 const app = express();
 const PORT = 5000;
 
 import route from "./routes/route.js";
 
 app.use(express.static("uploads"));
+app.use(cors());
 
 // connection require
 import "./db/connection.js";
