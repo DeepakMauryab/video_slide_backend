@@ -5,11 +5,15 @@ import {
   updateVideo,
   getVideoById,
   getVideoByChannel,
+  likeVideo
+} from "../controllers/videoCotrollers.js";
+import {
   createUser,
   updateUser,
   getUsers,
   deleteUser,
-} from "../routes/AllRoutes.js";
+  loginUser
+} from "../controllers/userControllers.js";
 
 const routeConstant = {
   uploadVideo,
@@ -22,6 +26,8 @@ const routeConstant = {
   updateUser,
   getUsers,
   deleteUser,
+  likeVideo,
+  loginUser
 };
 
 export default routeConstant;

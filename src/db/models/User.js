@@ -2,7 +2,7 @@ import { Sequelize, DataTypes } from "sequelize";
 import sql from "../connection.js";
 
 const User = sql.define(
-  "User",
+  "user",
   {
     name: {
       type: DataTypes.STRING,
@@ -25,6 +25,15 @@ const User = sql.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    mobile: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     banner: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -32,14 +41,24 @@ const User = sql.define(
     gender: {
       type: DataTypes.ENUM,
       values: ["M", "F", "O"],
-      allowNull: null,
+      allowNull: true,
     },
     dob: {
       type: DataTypes.DATE,
-      allowNull: null,
+      allowNull: true,
     },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    token: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    }
   },
   { timestamps: true, deletedAt: "destroyTime" }
 );
+
 
 export default User;
